@@ -98,13 +98,14 @@ const TechStackItem = ({
 const tabs: {
   id: number;
   title: Capitalize<keyof typeof techStacks> | "All";
+  mobileTitle: string;
 }[] = [
-  { id: 1, title: "All" },
-  { id: 2, title: "Languages" },
-  { id: 3, title: "Frontend" },
-  { id: 4, title: "Backend" },
-  { id: 5, title: "Devops" },
-  { id: 6, title: "Databases" },
+  { id: 1, title: "All", mobileTitle: "All" },
+  { id: 2, title: "Languages", mobileTitle: "Lang" },
+  { id: 3, title: "Frontend", mobileTitle: "FE" },
+  { id: 4, title: "Backend", mobileTitle: "BE" },
+  { id: 5, title: "Devops", mobileTitle: "Devops" },
+  { id: 6, title: "Databases", mobileTitle: "DB" },
 ];
 
 const TechStackTabs = () => {
@@ -133,7 +134,8 @@ const TechStackTabs = () => {
                 "hover:border-primary transition-colors duration-200 relative min-w-10 text-md font-semibold"
               )}
             >
-              {tab.title}
+              <span className="hidden sm:block">{tab.title}</span>
+              <span className="sm:hidden">{tab.mobileTitle}</span>
               {activeTab === tab.id && (
                 <motion.div
                   layoutId="underline"
