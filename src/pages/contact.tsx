@@ -72,7 +72,7 @@ export function ContactPage() {
   ]);
 
   return (
-    <div className="h-fit overflow-y-hidden overflow-x-hidden w-full bg-background/70 backdrop-blur-lg mb-16 z-20">
+    <div className="h-fit overflow-y-auto overflow-x-hidden w-full bg-background/70 backdrop-blur-lg mb-16 z-20">
       <Helmet>
         <title>Contact - Ivan Oliver</title>
       </Helmet>

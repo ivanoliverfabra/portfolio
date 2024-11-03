@@ -4,11 +4,6 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "~/components/ui/hover-card";
-import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -179,18 +174,18 @@ interface CertificationItem {
   description: string;
 }
 
-const CertificateContent = ({ title, description }: CertificationItem) => (
-  <HoverCardContent
-    className="w-full max-w-screen-sm pointer-events-none"
-    side="top"
-    sideOffset={8}
-  >
-    <div className="flex flex-col gap-y-2">
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="text-md">{description}</p>
-    </div>
-  </HoverCardContent>
-);
+// const CertificateContent = ({ title, description }: CertificationItem) => (
+//   <HoverCardContent
+//     className="w-full max-w-screen-sm pointer-events-none"
+//     side="top"
+//     sideOffset={8}
+//   >
+//     <div className="flex flex-col gap-y-2">
+//       <h3 className="text-lg font-semibold">{title}</h3>
+//       <p className="text-md">{description}</p>
+//     </div>
+//   </HoverCardContent>
+// );
 
 const certifications: CertificationItem[] = [
   {
@@ -254,40 +249,35 @@ interface CertificationItemProps extends CertificationItem {
 
 const CertificateItem = (cert: CertificationItemProps) => {
   return (
-    <HoverCard>
-      <HoverCardTrigger asChild>
-        <Link
-          to={cert.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group"
-        >
-          <motion.div
-            className={cn(
-              "bg-card/80 border rounded-lg p-4 flex gap-x-2 group-hover:border-primary/25 group-hover:bg-primary/5 transition-colors duration-200",
-              cert.className
-            )}
-            style={cert.style}
-            layoutId={cert.title}
-            onMouseEnter={cert.onMouseEnter}
-            onMouseLeave={cert.onMouseLeave}
-          >
-            <div>
-              <h3 className="text-lg font-semibold line-clamp-1 overflow-hidden">
-                {cert.title}
-              </h3>
-              <p className="text-md text-muted-foreground">
-                Issued by {cert.issuer} on{" "}
-                {cert.completedAt.toLocaleDateString("en-US", {
-                  month: "long",
-                  year: "numeric",
-                })}
-              </p>
-            </div>
-          </motion.div>
-        </Link>
-      </HoverCardTrigger>
-      <CertificateContent {...cert} />
-    </HoverCard>
+    <Link
+      to={cert.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group"
+    >
+      <motion.div
+        className={cn(
+          "bg-card/80 border rounded-lg p-4 flex gap-x-2 group-hover:border-primary/25 group-hover:bg-primary/5 transition-colors duration-200",
+          cert.className
+        )}
+        style={cert.style}
+        layoutId={cert.title}
+        onMouseEnter={cert.onMouseEnter}
+        onMouseLeave={cert.onMouseLeave}
+      >
+        <div>
+          <h3 className="text-lg font-semibold line-clamp-1 overflow-hidden">
+            {cert.title}
+          </h3>
+          <p className="text-md text-muted-foreground">
+            Issued by {cert.issuer} on{" "}
+            {cert.completedAt.toLocaleDateString("en-US", {
+              month: "long",
+              year: "numeric",
+            })}
+          </p>
+        </div>
+      </motion.div>
+    </Link>
   );
 };
