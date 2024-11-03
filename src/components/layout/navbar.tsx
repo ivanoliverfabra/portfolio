@@ -32,7 +32,8 @@ export function Navbar() {
   return (
     <header className="py-4 flex z-[60] w-full h-auto items-center justify-center sticky top-0 inset-x-0 border-b border-divider backdrop-blur-lg backdrop-saturate-150 bg-background/70">
       <nav className="flex items-center justify-between w-full container px-4">
-        <h1 className="text-lg">Ivan Oliver</h1>
+        <h1 className="text-lg hidden sm:block">Ivan Oliver</h1>
+        <h1 className="text-lg sm:hidden">IO</h1>
 
         <div className="flex items-center gap-x-6">
           {navItems.map((item, idx) => (
