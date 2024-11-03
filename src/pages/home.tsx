@@ -15,7 +15,7 @@ import { useMousePosition } from "~/providers/mouse-position";
 
 export function HomePage() {
   return (
-    <div className="h-fit w-full bg-background/70 backdrop-blur-lg overflow-y-auto mb-16 z-20">
+    <div className="h-full w-full bg-background/70 backdrop-blur-lg overflow-y-auto pb-16 lg:pb-0 lg:mb-16 z-20">
       <Helmet>
         <title>Ivan Oliver</title>
       </Helmet>
