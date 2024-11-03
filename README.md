@@ -1,50 +1,68 @@
-# React + TypeScript + Vite
+# Portfolio - fabra.tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the source code for my personal portfolio, [fabra.tech](https://fabra.tech). This project showcases my work, skills, and projects as a software engineer, along with details about my background and interests.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Setup & Installation](#setup--installation)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This portfolio is a single-page application designed to introduce myself and my professional experience, including:
+- **Projects**: Showcasing a collection of my projects with descriptions and links.
+- **Skills**: A summary of programming languages, frameworks, and tools I work with.
+- **Resume**: Link to my resume for potential employers or collaborators.
+- **Contact Form**: A way for visitors to reach out directly.
 
-- Configure the top-level `parserOptions` property like this:
+You can view the live version of this portfolio at [fabra.tech](https://fabra.tech).
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Features
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Responsive Design**: The portfolio is fully responsive across devices, with tailored styles for desktop, tablet, and mobile views.
+- **Interactive UI**: Hover effects, animations, and other UI elements to enhance user experience.
+- **Contact Form**: Allows users to get in touch directly through the site.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Technologies Used
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Frontend**: HTML, CSS, Typescript, React
+- **Styling**: CSS, Tailwind CSS
+- **Icons**: Lucide Icons
+- **Deployment**: Hosted on Vercel
+
+## Getting Started
+
+Follow these instructions to clone and run the project locally.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or above recommended)
+- Package Manager: [bun](https://www.bunjs.com/)
+
+### Setup & Installation
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/ivanoliverfabra/portfolio.git
+   cd portfolio
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   bun install
+   ```
+
+3. **Run the Portfolio Locally**
+   ```bash
+   bun start
+   ```
+
+4. **Build for Production**
+   ```bash
+   bun run build
+   ```
+
+This will start the application at `http://localhost:5173` (or the default port configured).
