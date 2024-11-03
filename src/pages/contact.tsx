@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
@@ -71,72 +72,84 @@ export function ContactPage() {
   ]);
 
   return (
-    <div className="h-full w-full bg-background/70 backdrop-blur-lg overflow-y-visible mb-16 z-20">
+    <div className="h-fit overflow-y-hidden overflow-x-hidden w-full bg-background/70 backdrop-blur-lg mb-16 z-20">
       <Helmet>
         <title>Contact - Ivan Oliver</title>
       </Helmet>
-      <div className="h-auto w-full flex flex-col gap-y-4 p-4">
-        <div className="items-center flex flex-col sm:flex-row justify-between border-b pt-6 pb-2">
-          <h2 className="text-2xl font-semibold">Get in Touch</h2>
-        </div>
 
-        <div className="w-full gap-4 bg-card/80 p-4 rounded-3xl flex flex-col">
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="w-full gap-4 grid lg:grid-cols-2"
-            >
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem className="col-span-2">
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea {...field} cols={30} rows={10} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <button
-                type="submit"
-                className="w-fit px-4 py-2 border hover:border-primary/25 transition-colors duration-200 hover:bg-primary/5 rounded-lg"
-                onMouseEnter={() => setHoveringSubmit(true)}
-                onMouseLeave={() => setHoveringSubmit(false)}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="h-auto w-full flex flex-col gap-y-4 p-4">
+          <div className="items-center flex flex-col sm:flex-row justify-between border-b pt-6 pb-2">
+            <h2 className="text-2xl font-semibold">Get in Touch</h2>
+          </div>
+
+          <div className="w-full gap-4 bg-card/80 p-4 rounded-3xl flex flex-col">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="w-full gap-4 grid lg:grid-cols-2"
               >
-                {form.formState.isSubmitting ? "Sending..." : "Send"}
-              </button>
-            </form>
-          </Form>
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Name</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem className="col-span-2">
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          className="resize-none"
+                          {...field}
+                          rows={15}
+                          maxLength={5000}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <button
+                  type="submit"
+                  className="w-fit px-4 py-2 border hover:border-primary/25 transition-colors duration-200 hover:bg-primary/5 rounded-lg"
+                  onMouseEnter={() => setHoveringSubmit(true)}
+                  onMouseLeave={() => setHoveringSubmit(false)}
+                >
+                  {form.formState.isSubmitting ? "Sending..." : "Send"}
+                </button>
+              </form>
+            </Form>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

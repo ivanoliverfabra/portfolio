@@ -122,7 +122,7 @@ export function MyInfo() {
     }, 250);
   };
   return (
-    <div className="bg-card/80 border rounded-3xl w-full lg:w-[500px] mt-8 h-auto flex flex-col z-[2] lg:sticky top-10 inset-y-0 order-first lg:order-2">
+    <div className="bg-card/80 border rounded-3xl w-full lg:w-[500px] mt-8 h-auto flex flex-col z-[2] relative lg:sticky lg:top-10 inset-y-0 order-first lg:order-2">
       <div className="items-center flex gap-x-4 border-b p-4 w-full">
         <Avatar className="ring ring-muted ring-offset-2 ring-offset-secondary h-14 w-14">
           <AvatarImage src="https://avatars.githubusercontent.com/u/116782642?v=4" />

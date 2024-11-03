@@ -5,7 +5,7 @@ import { env } from "~/env";
 
 export function AboutPage() {
   return (
-    <div className="h-full w-full bg-background/70 backdrop-blur-lg overflow-y-visible mb-16 z-20">
+    <div className="h-full w-full bg-background/70 backdrop-blur-lg overflow-y-auto overflow-x-hidden mb-16 z-20">
       <Helmet>
         <title>About - Ivan Oliver</title>
       </Helmet>
